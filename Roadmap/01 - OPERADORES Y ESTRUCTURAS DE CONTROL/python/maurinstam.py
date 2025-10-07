@@ -100,3 +100,44 @@ Estructuras de control
 '''
 
 #Condicionales
+
+mi_nombre = "Mauris"
+
+if mi_nombre == "Mauris":
+    print("Hola, Mauris")
+elif mi_nombre == "Juan":
+    print("Hola, Juan")
+else:
+    print("Hola, extraño")
+
+#Iterativas
+
+#Bucle for
+for i in range(11):
+    print(i)
+
+#Bucle while
+contador = 0
+while contador < 11:   
+    print(contador)
+    contador += 1
+
+#Excepciones
+
+try:
+     print (10 / 0)   
+except:
+    print("Se ha producido un error")
+finally:
+    print("Ha finalizado el manejo de excepciones")
+
+
+
+'''
+Extra
+
+'''
+
+for number in range(10,56):
+    if number % 2 == 0 and number != 16 and number % 3 != 0:
+        print(number)
