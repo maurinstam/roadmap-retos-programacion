@@ -83,7 +83,7 @@ DIFICULTAD EXTRA (opcional):
 '''
 
 def my_agenda():
-
+    
     agenda = {}
 
     while True:
@@ -95,21 +95,44 @@ def my_agenda():
         print("4. Eliminar un contacto")
         print("5. Salir")
 
-option = input("Selecciona una opcion: ")
+        option = input("Selecciona una opcion: ")
 
-match option:
-
-    case "1":
-        pass
-    case "2":
-        pass
-    case "3":
-        pass
-    case "4":
-        pass
-    case "5":
-        print("Saliendo de la agenda")
-    case _:
-        print("Opcion no valida, Elige una opcion del 1 al 5")
+        match option:
+            case "1":
+                name = input("Introduce el nombre del contacto a buscar: ")
+                if name in agenda:
+                    print(f"El numero de telefono de {name} es {agenda[name]}")
+                else:
+                    print(f"El contacto {name} no se encuentra en la agenda")
+            case "2":
+                name = input("Introduce el nombre del contacto: ")
+                phone = input("Introduce el numero de telefono: ")
+                if phone.isdigit() and len(phone) > 0 and len(phone) <= 11:
+                    agenda[name] = phone
+                else:
+                    print("Debes introducir un numero de telefono un maximo de 11 digitos y solo numeros")
+            case "3":
+                name = input("Introduce el nombre del contacto a actualizar: ")
+                if name in agenda:
+                    phone = input("Introduce el nuevo numero de telefono: ")
+                    if phone.isdigit() and len(phone) > 0 and len(phone) <= 11:
+                        agenda[name] = phone
+                        print(f"El contacto {name} ha sido actualizado")
+                    else:
+                        print("Debes introducir un numero de telefono un maximo de 11 digitos y solo numeros")
+                else:
+                    print(f"El contacto {name} no se encuentra en la agenda")
+            case "4":
+                name = input("Introduce el nombre del contacto a eliminar: ")
+                if name in agenda:
+                    del agenda[name]
+                    print(f"El contacto {name} ha sido eliminado")
+                else:
+                    print(f"El contacto {name} no se encuentra en la agenda")
+            case "5":
+                print("Saliendo de la agenda")
+                break
+            case _:
+                print("Opcion no valida, Elige una opcion del 1 al 5")
 
 my_agenda()
